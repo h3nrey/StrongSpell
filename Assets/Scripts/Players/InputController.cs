@@ -9,5 +9,8 @@ public class InputController : MonoBehaviour
     public void GetMovementValues(InputAction.CallbackContext context) {
         playerContainer.input = context.ReadValue<Vector2>();
         playerContainer.input.Normalize();
+        if(Mathf.Abs(playerContainer.input.magnitude) > 0) {
+            playerContainer.lastInput = playerContainer.input;
+        }
     }
 }
