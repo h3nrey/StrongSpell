@@ -11,6 +11,7 @@ public class MovementController : MonoBehaviour
     private Vector2 lastInput => PlayerBehaviour.playerInstance.lastInput;
     private float speed => _player.playerData.speed;
 
+
     private void FixedUpdate() {
         Move();
     }

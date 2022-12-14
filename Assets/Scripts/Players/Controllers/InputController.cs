@@ -13,4 +13,10 @@ public class InputController : MonoBehaviour
             playerContainer.lastInput = playerContainer.input;
         }
     }
+
+    public void DetectAttackButton(InputAction.CallbackContext context) {
+        if(context.started) {
+            playerContainer.onAttack?.Invoke();
+        }
+    }
 }

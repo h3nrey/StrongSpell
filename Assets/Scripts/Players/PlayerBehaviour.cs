@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Events;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     public Vector2 input;
     public Vector2 lastInput;
+
+    [Header("Inputs Events")]
+    public UnityEvent onAttack;
 
     [Header("Components")]
     [SerializeField] public SpriteRenderer spriteRenderer;

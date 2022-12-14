@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2125a49cd31d8bb4dbc9c45b17a5bd17, type: 3}
+  m_Script: {fileID: 11500000, guid: 0487fd6b34da41347af928c0941ed2c7, type: 3}
   m_Name: StrongPlayer
   m_EditorClassIdentifier: 
-  entityName: "T\xEDmircules"
+  entityName: 
   sprite: {fileID: -209951928, guid: 0758e2fb8671bad4d916b3a6099e26bc, type: 3}
   life: 3
   speed: 5
-  attackDamageAmount: 20
+  attackDamageAmount: 10
+  attackRate: 0.5
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackRange: 0.67
