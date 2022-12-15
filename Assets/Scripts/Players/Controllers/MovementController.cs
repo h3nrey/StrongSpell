@@ -21,7 +21,9 @@ public class MovementController : MonoBehaviour
     }
 
     private void Move() {
-        _player.rb.velocity = speed * _player.input;
+        if(_player.canMove) {
+            _player.rb.AddForce(speed * input * Time.fixedDeltaTime);
+        }
     }
 
     private void SettingFacing() {

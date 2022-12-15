@@ -19,4 +19,14 @@ public class InputController : MonoBehaviour
             playerContainer.onAttack?.Invoke();
         }
     }
+
+    public void DetectOtherButton(InputAction.CallbackContext context) {
+        if(context.started) {
+            playerContainer.onOtherButton?.Invoke();
+        }
+
+        if(context.canceled) {
+            playerContainer.onReleaseOtherButton?.Invoke();
+        }
+    }
 }

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GraphicsController : MonoBehaviour
-{
+public class GraphicsController : MonoBehaviour {
     PlayerBehaviour _player => PlayerBehaviour.playerInstance;
     private Animator anim => PlayerBehaviour.playerInstance.anim;
     private Vector2 input => PlayerBehaviour.playerInstance.input;
@@ -17,7 +16,7 @@ public class GraphicsController : MonoBehaviour
     }
 
     private void Update() {
-        if(Mathf.Abs(input.magnitude) > 0) {
+        if (Mathf.Abs(input.magnitude) > 0) {
             anim.SetBool("moving", true);
         } else {
             anim.SetBool("moving", false);
@@ -26,9 +25,18 @@ public class GraphicsController : MonoBehaviour
         anim.SetFloat("velY", input.y);
         anim.SetFloat("lastInputX", lastInput.x);
         anim.SetFloat("lastInputY", lastInput.y);
+
+        //attack
+        anim.SetBool("canAttack", _player.canAttack);
+
+        //block
+        anim.SetBool("isBlocking", _player.isBlocking);
     }
 
     private void PlayAttackAnimation() {
-        anim.SetTrigger("attack");
+        print("start Attack animation");
+        if(_player.canAttack)
+            anim.SetTrigger("attack");
+        print("end Attack animation");
     }
 }

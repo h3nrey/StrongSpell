@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Entity/New Player/Basic Player")]
 public class Player : Entity {
     public float speed;
-    public float attackDamageAmount;
+    public int attackDamageAmount;
     public float attackRate;
     public LayerMask attackLayer;
 }

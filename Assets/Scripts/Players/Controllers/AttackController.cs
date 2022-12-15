@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utils;
 
 public class AttackController : MonoBehaviour {
     PlayerBehaviour _player => PlayerBehaviour.playerInstance;
@@ -11,6 +12,10 @@ public class AttackController : MonoBehaviour {
 
     LayerMask attackLayer => _player.playerData.attackLayer;
 
+    private bool canAttack {
+        get => _player.canAttack;
+        set => _player.canAttack = value;
+    }
 
     [SerializeField]
     private Vector2[] attackPoints;
@@ -35,11 +40,19 @@ public class AttackController : MonoBehaviour {
     }
 
     private void Attack() {
+        print("Start Attack");
         Collider2D[] attackedEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, attackLayer);
 
-        foreach(Collider2D enemy in attackedEnemies) {
-            print(enemy.gameObject.name);
-            //take damage of Enemy
+
+        if(canAttack) {
+            foreach (Collider2D enemy in attackedEnemies) {
+                enemy.gameObject.GetComponent<EntityController>().TakeDamage(_player.playerData.attackDamageAmount);
+            }
+            Coroutines.DoAfter(() => canAttack = true, _player.playerData.attackRate, this);
+            Coroutines.DoAfter(() => {
+                _player.canAttack = false;
+                print("Finish Attack");
+            }, 0.05f, this);
         }
     }
 
