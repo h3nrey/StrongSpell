@@ -6,6 +6,22 @@ using UnityEngine.InputSystem;
 public class InputController : MonoBehaviour
 {
     [SerializeField] PlayerBehaviour playerContainer;
+
+    private Vector2 mousePos {
+        get => playerContainer.mousePos;
+        set => playerContainer.mousePos = value;
+    }
+
+    private Vector2 lookDir {
+        get => playerContainer.lookDir;
+        set => playerContainer.lookDir = value;
+    }
+
+    private void Update() {
+        GetMousePos();
+        SettingLookDir();
+    }
+
     public void GetMovementValues(InputAction.CallbackContext context) {
         playerContainer.input = context.ReadValue<Vector2>();
         playerContainer.input.Normalize();
@@ -28,5 +44,14 @@ public class InputController : MonoBehaviour
         if(context.canceled) {
             playerContainer.onReleaseOtherButton?.Invoke();
         }
+    }
+
+    public void GetMousePos() {
+        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+    }
+
+    private void SettingLookDir() {
+        lookDir = mousePos - (Vector2)transform.position;
+        lookDir.Normalize();
     }
 }

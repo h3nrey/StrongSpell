@@ -4,13 +4,8 @@ using Utils;
 public class AttackController : MonoBehaviour {
     PlayerBehaviour _player => PlayerBehaviour.playerInstance;
     Vector2 input => _player.input;
-    [SerializeField]
-    StrongPlayer strongPlayerData;
-    float attackRange => strongPlayerData.attackRange;
-    [SerializeField]
-    private Transform attackPoint;
 
-    LayerMask attackLayer => _player.playerData.attackLayer;
+    Transform attackPoint => _player.attackPoint;
 
     private bool canAttack {
         get => _player.canAttack;
@@ -20,11 +15,11 @@ public class AttackController : MonoBehaviour {
     [SerializeField]
     private Vector2[] attackPoints;
     private void Start() {
-        _player.onAttack.AddListener(Attack);
+        _player.onAttack.AddListener(HandleAttack);
     }
 
     private void OnDestroy() {
-        _player.onAttack.RemoveListener(Attack);
+        _player.onAttack.RemoveListener(HandleAttack);
     }
 
     private void Update() {
@@ -39,26 +34,12 @@ public class AttackController : MonoBehaviour {
         }
     }
 
-    private void Attack() {
-        print("Start Attack");
-        Collider2D[] attackedEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, attackLayer);
-
-
-        if(canAttack) {
-            foreach (Collider2D enemy in attackedEnemies) {
-                enemy.gameObject.GetComponent<EntityController>().TakeDamage(_player.playerData.attackDamageAmount);
-            }
-            Coroutines.DoAfter(() => canAttack = true, _player.playerData.attackRate, this);
-            Coroutines.DoAfter(() => {
-                _player.canAttack = false;
-                print("Finish Attack");
-            }, 0.05f, this);
-        }
-    }
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    private void HandleAttack() {
+        Coroutines.DoAfter(() => canAttack = true, _player.playerData.attackRate, this);
+        //Coroutines.DoAfter(() => {
+        //    _player.canAttack = false;
+        //    print("Finish Attack");
+        //}, 0.05f, this);
     }
 
 }

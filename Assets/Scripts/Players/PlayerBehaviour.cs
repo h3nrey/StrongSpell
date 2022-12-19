@@ -11,22 +11,30 @@ public class PlayerBehaviour : MonoBehaviour
 
     public static PlayerBehaviour playerInstance;
 
+    [SerializeField]
+    public bool isStrongPlayer;
+
     public Vector2 input;
     public Vector2 lastInput;
-
-    [Header("Movement")]
-    [ReadOnly] public bool canMove;
-
-    [Header("Attack")]
-    [ReadOnly] public bool canAttack;
-
-    [Header("Defense")]
-    [ReadOnly] public bool isBlocking;
+    public Vector2 mousePos;
+    public Vector2 lookDir;
 
     [Header("Inputs Events")]
     public UnityEvent onAttack;
     public UnityEvent onOtherButton;
     public UnityEvent onReleaseOtherButton;
+
+    [Header("Movement")]
+    [ReadOnly] public bool canMove;
+
+    [Header("Attack")]
+     public bool canAttack;
+    [SerializeField]
+    public Transform attackPoint;
+
+    [Header("Defense")]
+    [ReadOnly] public bool isBlocking;
+
 
     [Header("Components")]
     [SerializeField] public SpriteRenderer spriteRenderer;

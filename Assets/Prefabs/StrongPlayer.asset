@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: 
   sprite: {fileID: -209951928, guid: 0758e2fb8671bad4d916b3a6099e26bc, type: 3}
+  animatorController: {fileID: 9100000, guid: 060c39a6720c47e4cb1dbe49c34c93d0, type: 2}
   life: 3
-  speed: 5
+  speed: 4000
   attackDamageAmount: 10
-  attackRate: 0.5
+  attackRate: 0.4
   attackLayer:
     serializedVersion: 2
     m_Bits: 64
   attackRange: 0.67
+  speedWhenDefending: 0
+  canWalkWhenDefending: 0

@@ -13,5 +13,6 @@ public class PlayerConfig : MonoBehaviour
     [Button("SetupPlayer")]
     public void SetupPlayer() {
         _componentsContainer.spriteRenderer.sprite = playerData.sprite;
+        _componentsContainer.anim.runtimeAnimatorController = playerData.animatorController;
     }
 }
