@@ -543,7 +543,7 @@ MonoBehaviour:
     m_ActionName: Player2/Other[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player2
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &919200239
@@ -741,11 +741,11 @@ GameObject:
   - component: {fileID: 1309778496}
   m_Layer: 6
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1309778490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -925,6 +925,8 @@ GameObject:
   - component: {fileID: 1361226359}
   - component: {fileID: 1361226355}
   - component: {fileID: 1361226363}
+  - component: {fileID: 1361226366}
+  - component: {fileID: 1361226365}
   - component: {fileID: 1361226364}
   - component: {fileID: 1361226362}
   - component: {fileID: 1361226358}
@@ -937,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1361226354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,7 +982,7 @@ MonoBehaviour:
       m_Calls: []
   canMove: 0
   canAttack: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 341844850}
   isBlocking: 0
   spriteRenderer: {fileID: 2031503215}
   rb: {fileID: 1361226359}
@@ -1130,7 +1132,19 @@ MonoBehaviour:
   actualLife: 0
   onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1361226365}
+        m_TargetAssemblyTypeName: SelfDestructionController, Assembly-CSharp
+        m_MethodName: DestroySelf
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1361226364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,6 +1164,30 @@ MonoBehaviour:
   - {x: 0, y: 0.7}
   - {x: 0.6, y: 0}
   - {x: 0, y: -0.8}
+--- !u!114 &1361226365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361226353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a0255b2efd74c449223e0081cab305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1361226366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361226353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67dfe2920c866e459a7931897419c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637851703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1318,7 @@ GameObject:
   - component: {fileID: 2016012731}
   - component: {fileID: 2016012730}
   - component: {fileID: 2016012736}
+  - component: {fileID: 2016012737}
   - component: {fileID: 2016012729}
   - component: {fileID: 2016012728}
   - component: {fileID: 2016012727}
@@ -1291,7 +1330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2016012726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,7 +1423,19 @@ MonoBehaviour:
   actualLife: 0
   onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2016012737}
+        m_TargetAssemblyTypeName: SelfDestructionController, Assembly-CSharp
+        m_MethodName: DestroySelf
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2016012732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,6 +1550,18 @@ MonoBehaviour:
   _player: {fileID: 2016012732}
   mageData: {fileID: 11400000, guid: 08f7a964c7959db4c9d02093b79bf8df, type: 2}
   shootPoint: {fileID: 27335917}
+--- !u!114 &2016012737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016012724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a0255b2efd74c449223e0081cab305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2031503214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1624,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -209951928, guid: 0758e2fb8671bad4d916b3a6099e26bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
