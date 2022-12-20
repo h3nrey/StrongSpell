@@ -6,8 +6,8 @@ using NaughtyAttributes;
 
 public class EntityController : MonoBehaviour
 {
-    [SerializeField]
-    private Entity _entitty;
+    [Expandable]
+    public Entity _entitty;
 
     [SerializeField] 
     private int actualLife;
@@ -24,5 +24,11 @@ public class EntityController : MonoBehaviour
         if(actualLife == 0) {
             onDie?.Invoke();
         }
+    }
+
+    public void ExecuteKnockback(Vector2 dir, float force) {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        rb.AddForce(dir * force * Time.deltaTime);
     }
 }

@@ -8,4 +8,5 @@ public class Entity : ScriptableObject {
     public Sprite sprite;
     public RuntimeAnimatorController animatorController;
     public int life;
+    public float knockbackForce;
 }

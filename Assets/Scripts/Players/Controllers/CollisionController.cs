@@ -5,14 +5,18 @@ using UnityEngine.Events;
 
 public class CollisionController : MonoBehaviour
 {
+    [SerializeField]
+    EntityController _entity;
     UnityEvent onTouchEnemy;
 
     private void OnCollisionEnter2D(Collision2D other) {
         GameObject otherObj = other.gameObject;
+        Vector2 otherNormal = other.GetContact(0).normal;
         string otherTag = otherObj.tag;
 
         if(otherTag == "Enemy") {
-            GetComponent<EntityController>().TakeDamage(1);
+            _entity.TakeDamage(1);
+            _entity.ExecuteKnockback(otherNormal, _entity._entitty.knockbackForce);
             print("tested");
         }
     }

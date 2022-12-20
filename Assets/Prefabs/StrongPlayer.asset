@@ -16,6 +16,7 @@ MonoBehaviour:
   sprite: {fileID: -209951928, guid: 0758e2fb8671bad4d916b3a6099e26bc, type: 3}
   animatorController: {fileID: 9100000, guid: 060c39a6720c47e4cb1dbe49c34c93d0, type: 2}
   life: 3
+  knockbackForce: 50000
   speed: 4000
   attackDamageAmount: 10
   attackRate: 0.4
