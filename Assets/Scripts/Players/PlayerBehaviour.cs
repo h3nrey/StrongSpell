@@ -26,6 +26,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     [Header("Movement")]
     [ReadOnly] public bool canMove;
+    [ReadOnly] public Vector2 vel;
 
     [Header("Attack")]
      public bool canAttack;

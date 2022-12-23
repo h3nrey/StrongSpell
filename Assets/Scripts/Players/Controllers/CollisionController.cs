@@ -7,6 +7,8 @@ public class CollisionController : MonoBehaviour
 {
     [SerializeField]
     EntityController _entity;
+    [SerializeField]
+    PlayerBehaviour _player;
     UnityEvent onTouchEnemy;
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -15,9 +17,28 @@ public class CollisionController : MonoBehaviour
         string otherTag = otherObj.tag;
 
         if(otherTag == "Enemy") {
-            _entity.TakeDamage(1);
-            _entity.ExecuteKnockback(otherNormal, _entity._entitty.knockbackForce);
-            print("tested");
+            if(!_player.isBlocking) {
+                _entity.ExecuteKnockback(otherNormal, _entity._entitty.knockbackForce);
+                _entity.TakeDamage(1);
+            } else {
+                _entity.ExecuteKnockback(otherNormal, _entity._entitty.knockbackForce / 2);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        GameObject otherObj = other.gameObject;
+        Vector2 otherNormal = other.attachedRigidbody.velocity.normalized;
+        string otherTag = otherObj.tag;
+
+        if (otherTag == "Enemy") {
+            if (!_player.isBlocking) {
+                _entity.ExecuteKnockback(otherNormal, _entity._entitty.knockbackForce);
+                _entity.TakeDamage(1);
+            }
+            else {
+                _entity.ExecuteKnockback(otherNormal, _entity._entitty.knockbackForce / 2);
+            }
         }
     }
 }

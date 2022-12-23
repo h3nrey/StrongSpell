@@ -35,7 +35,9 @@ public class AttackController : MonoBehaviour {
     }
 
     private void HandleAttack() {
-        Coroutines.DoAfter(() => canAttack = true, _player.playerData.attackRate, this);
+        if(canAttack == true) {
+            Coroutines.DoAfter(() => canAttack = true, _player.playerData.attackRate, this);
+        }
         //Coroutines.DoAfter(() => {
         //    _player.canAttack = false;
         //    print("Finish Attack");

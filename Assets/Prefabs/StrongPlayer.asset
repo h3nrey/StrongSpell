@@ -18,11 +18,13 @@ MonoBehaviour:
   life: 3
   knockbackForce: 50000
   speed: 4000
+  linearDrag: 15
   attackDamageAmount: 10
   attackRate: 0.4
   attackLayer:
     serializedVersion: 2
     m_Bits: 64
   attackRange: 0.67
-  speedWhenDefending: 0
+  linearDragWhenBlocking: 25
   canWalkWhenDefending: 0
+  knockbackForceWhenDefenfing: 0

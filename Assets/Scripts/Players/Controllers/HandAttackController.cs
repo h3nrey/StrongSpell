@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrongPlayerAttackController : MonoBehaviour
+public class HandAttackController : MonoBehaviour
 {
     PlayerBehaviour _player => PlayerBehaviour.playerInstance;
     Vector2 input => _player.input;

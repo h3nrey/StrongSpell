@@ -15,12 +15,16 @@ MonoBehaviour:
   entityName: 
   sprite: {fileID: 847672598, guid: d5c63f274232fc6408ae9641ea3a3402, type: 3}
   animatorController: {fileID: 9100000, guid: 36f8677d5e4b6c84e9683c1601cc75c2, type: 2}
-  life: 100
+  life: 4
+  knockbackForce: 65000
   speed: 5000
+  linearDrag: 0
   attackDamageAmount: 10
-  attackRate: 2
+  attackRate: 0.5
   attackLayer:
     serializedVersion: 2
     m_Bits: 64
   energyPrefab: {fileID: 2002546316135442908, guid: 7de8b3cd6ade81a4a907a63060e71c18, type: 3}
   energySpeed: 30
+  energyTimeToDestroy: 1
+  dodgeForce: 4000

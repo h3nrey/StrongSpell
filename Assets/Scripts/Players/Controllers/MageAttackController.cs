@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class MageAttackController : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class MageAttackController : MonoBehaviour
     }
 
     private void Update() {
-        print($"can attack: {_player.canAttack}");
+        //print($"can attack: {_player.canAttack}");
     }
 
     private void Shoot() {
@@ -38,6 +39,7 @@ public class MageAttackController : MonoBehaviour
         GameObject energy = Instantiate(mageData.energyPrefab, shootPoint.position, Quaternion.identity) as GameObject;
         Rigidbody2D energyRb = energy.GetComponent<Rigidbody2D>();
         energyRb.velocity += direction * mageData.energySpeed;
+        Coroutines.DoAfter(() => Destroy(energy), mageData.energyTimeToDestroy, this);
     }
 
     private void HandleAttack() {

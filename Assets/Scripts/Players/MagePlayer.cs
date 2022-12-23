@@ -6,4 +6,6 @@ using UnityEngine;
 public class MagePlayer : Player {
     public GameObject energyPrefab;
     public float energySpeed;
+    public float energyTimeToDestroy;
+    public float dodgeForce;
 }

@@ -43,11 +43,13 @@ public class DefenseController : MonoBehaviour
         if(strongPlayerData.canWalkWhenDefending) { 
             _player.canMove = false;
         }
+        _player.rb.drag = strongPlayerData.linearDragWhenBlocking;
         _player.isBlocking = true;
         defensePoint.SetActive(true);
     }
 
     public void ReleaseDefense() {
+        _player.rb.drag = _player.playerData.linearDrag;
         _player.canMove = true;
         _player.isBlocking = false;
         defensePoint.SetActive(false);

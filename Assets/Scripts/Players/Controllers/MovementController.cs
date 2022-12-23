@@ -12,10 +12,15 @@ public class MovementController : MonoBehaviour
     private Vector2 lookDir => PlayerBehaviour.playerInstance.lookDir;
     private float speed => _player.playerData.speed;
     private bool isStrongPlayer => _player.isStrongPlayer;
+    private Vector2 vel {
+        get => _player.vel;
+        set => _player.vel = value;
+    }
 
 
     private void FixedUpdate() {
         Move();
+        vel = _player.rb.velocity;
     }
 
     private void Update() {
