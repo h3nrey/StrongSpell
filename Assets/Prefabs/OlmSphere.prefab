@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8088944934882423333}
   - component: {fileID: 7428732193647285787}
   - component: {fileID: 5783460724877666132}
+  - component: {fileID: 5547946056312952170}
   - component: {fileID: 8579752957572492759}
   m_Layer: 0
   m_Name: OlmSphere
@@ -102,6 +103,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5547946056312952170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824486653941316112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30657b9ed1a93394b88c64987a6ffecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagThatWillIgnore: Enemy
 --- !u!50 &8579752957572492759
 Rigidbody2D:
   serializedVersion: 4
