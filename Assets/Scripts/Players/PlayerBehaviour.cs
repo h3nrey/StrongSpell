@@ -23,6 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     public UnityEvent onAttack;
     public UnityEvent onOtherButton;
     public UnityEvent onReleaseOtherButton;
+    public bool holdingRunButton;
 
     [Header("Movement")]
     [ReadOnly] public bool canMove;

@@ -46,6 +46,16 @@ public class InputController : MonoBehaviour
         }
     }
 
+    public void DetectRunButton(InputAction.CallbackContext context) {
+        if(context.started) {
+            playerContainer.holdingRunButton = true;
+        } 
+
+        if(context.canceled) {
+            playerContainer.holdingRunButton = false;
+        }
+    }
+
     public void GetMousePos() {
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }

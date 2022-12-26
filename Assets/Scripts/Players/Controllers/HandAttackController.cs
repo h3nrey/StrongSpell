@@ -6,9 +6,8 @@ public class HandAttackController : MonoBehaviour
 {
     PlayerBehaviour _player => PlayerBehaviour.playerInstance;
     Vector2 input => _player.input;
-    [SerializeField]
-    StrongPlayer strongPlayerData;
-    float attackRange => strongPlayerData.attackRange;
+    private float attackRange => _player.playerData.attackRange;
+
     [SerializeField]
     private Transform attackPoint;
 
@@ -43,6 +42,6 @@ public class HandAttackController : MonoBehaviour
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, _player.playerData.attackRange);
     }
 }

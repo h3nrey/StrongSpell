@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &255035344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   _entity: {fileID: 255035349}
   actualState: 0
   targets:
-  - {fileID: 2016012735}
+  - {fileID: 1361226356}
   closestTarget: {fileID: 0}
   delayAfterCheckClosestTarget: 0.45
   rotationSpeed: 45
@@ -870,9 +870,9 @@ MonoBehaviour:
     m_ActionName: Player/Other[/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2016012727}
+      - m_Target: {fileID: 1361226354}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: GetMovementValues
+        m_MethodName: DetectRunButton
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -882,43 +882,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 87b3c985-590f-4bd6-a4d0-73f760c48279
-    m_ActionName: Player2/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2016012727}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: DetectAttackButton
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 33d1e335-b1ba-43a8-9cd6-e315c52e0845
-    m_ActionName: Player2/Attack[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2016012727}
-        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: DetectOtherButton
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9b05d7f2-5379-4c1b-a23f-2c6a74c17216
-    m_ActionName: Player2/Other[/Mouse/rightButton]
+    m_ActionId: 7eeaded7-34f0-438f-909b-3d43828d2c72
+    m_ActionName: Player/Dodge[/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player2
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &919200239
@@ -4456,7 +4424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1361226354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,7 +4432,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d6b658e63c740540ac3aa3920aa6755, type: 3}
   m_Name: 
@@ -4477,12 +4445,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30ec0df0951d5bf43a271bad2af1a210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: d16e2501ef310814d92e59d8c71ff030, type: 2}
+  playerData: {fileID: 11400000, guid: 156caabeb1139fe4eafff23ef15c8c09, type: 2}
   isStrongPlayer: 1
   input: {x: 0, y: 0}
   lastInput: {x: 0, y: 0}
@@ -4497,6 +4465,7 @@ MonoBehaviour:
   onReleaseOtherButton:
     m_PersistentCalls:
       m_Calls: []
+  holdingRunButton: 0
   canMove: 0
   vel: {x: 0, y: 0}
   canAttack: 0
@@ -4513,9 +4482,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05102332, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 2.95, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2031503216}
   - {fileID: 341844850}
@@ -4544,7 +4513,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a63bec9dcd3ae149b579faf17555ca5, type: 3}
   m_Name: 
@@ -4604,7 +4573,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f137f50b0078114581a03a5999a723d, type: 3}
   m_Name: 
@@ -4621,16 +4590,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 951524ef48bce8d49958cc3d51dda794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entitty: {fileID: 11400000, guid: d16e2501ef310814d92e59d8c71ff030, type: 2}
+  _entitty: {fileID: 11400000, guid: 156caabeb1139fe4eafff23ef15c8c09, type: 2}
   actualLife: 0
-  blinkColors: []
-  blinkTime: 0
-  sprites: []
+  blinkColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+  blinkTime: 3
+  sprites:
+  - {fileID: 2031503215}
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -4653,13 +4625,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70008557e45ca6a40b3ade3eac96c146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1361226355}
-  strongPlayerData: {fileID: 11400000, guid: d16e2501ef310814d92e59d8c71ff030, type: 2}
   defensePoint: {fileID: 1900187510}
   defensePointPositions:
   - {x: 0, y: 0.7}
@@ -4698,12 +4669,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361226353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9684803b88aa548418a38bfe6f8bf24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strongPlayerData: {fileID: 11400000, guid: d16e2501ef310814d92e59d8c71ff030, type: 2}
   attackPoint: {fileID: 341844850}
   attackPoints:
   - {x: -0.35, y: -0.65}
@@ -6072,7 +6042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2016012726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6192,6 +6162,7 @@ MonoBehaviour:
   onReleaseOtherButton:
     m_PersistentCalls:
       m_Calls: []
+  holdingRunButton: 0
   canMove: 0
   vel: {x: 0, y: 0}
   canAttack: 0
@@ -6277,9 +6248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0981b94c3473c4e4996dfd723bdcc067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 2016012732}
-  mageData: {fileID: 11400000, guid: 08f7a964c7959db4c9d02093b79bf8df, type: 2}
-  shootPoint: {fileID: 27335917}
 --- !u!114 &2016012737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6304,8 +6272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8ba30019875304883dbb33725b4e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 2016012732}
-  _mageData: {fileID: 11400000, guid: 08f7a964c7959db4c9d02093b79bf8df, type: 2}
   dodging: 0
 --- !u!114 &2016012739
 MonoBehaviour:
